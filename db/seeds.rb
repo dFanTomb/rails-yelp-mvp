@@ -8,13 +8,13 @@
 require 'faker'
 
 Restaurant.destroy_all
-# creates fakes without id and does not show them
+
 5.times do
   restaurant = Restaurant.create(
     name: Faker::Restaurant.name,
     address: Faker::Address.street_address,
     phone_number: Faker::PhoneNumber.cell_phone_in_e164,
-    category: Faker::Restaurant.type
+    category: Restaurant::CATEGORIES.sample # it reads the CATEGORIES array from restaurant model
   )
   puts "Restaurant with id: #{restaurant.id} has been created"
 end
