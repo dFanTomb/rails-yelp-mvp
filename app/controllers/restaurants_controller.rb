@@ -5,6 +5,8 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
+    @review = Review.new  # must initialize new review to show, otherwise it will give error
+    # "undefined method `model_name' for nil:NilClass"
   end
 
   def new
